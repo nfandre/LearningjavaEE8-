@@ -1,4 +1,4 @@
-package com.example.LearningjavaEE8.boundary;
+package com.example.LearningjavaEE8.entity;
 
 import com.example.LearningjavaEE8.entity.Color;
 import com.example.LearningjavaEE8.entity.EngineType;

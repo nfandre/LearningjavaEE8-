@@ -1,6 +1,6 @@
 package com.example.LearningjavaEE8.control;
 
-import com.example.LearningjavaEE8.boundary.Especification;
+import com.example.LearningjavaEE8.entity.Especification;
 import com.example.LearningjavaEE8.entity.Car;
 import com.example.LearningjavaEE8.entity.Color;
 
