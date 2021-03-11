@@ -3,40 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
-    <script type="text/javascript">
-        var webSocket = new WebSocket("vw://localhost:8080/example/hello");
-        var msgField = document.getElementById("messageField");
-        var divMsg = document.getElementById("msg-box");
-
-        function sendMsg() {
-            var msgToSend = msgField.value;
-            webSocket.send(msgToSend);
-            divMsg.innerHTML += "<div style='color: red'>Client " +msgToSend+ "</div>"
-            msgField.value = "";
-        }
-        webSocket.onmessage = function (msg) {
-            divMsg.innerHTML = "Server> : " + msg.data;
-        }
-        webSocket.onopen = function () {
-            console.log("Server opened")
-        }
-
-        webSocket.onclose = function () {
-            console.log("Server closed")
-        }
-
-        webSocket.onerror = function (msg) {
-            console.log("error: " + msg)
-        }
-    </script>
 </head>
 <body>
 <form>
     <input id="messageField" type="text">
     <input onclick="sendMsg();" value="send" type="button">
 </form>
-<div id="msg-box" >
+<div id="msg-box" style="background: #efeded; height: 200px" >
 </div>
+
+<script type="text/javascript">
+    var webSocket = new WebSocket("ws://localhost:8080/example/hello");
+    var msgField = document.getElementById("messageField");
+    var divMsg = document.getElementById("msg-box");
+    function sendMsg() {
+        var msgToSend = msgField.value;
+        webSocket.send(msgToSend);
+        divMsg.innerHTML += "<div style='color: red'>Client> " +msgToSend+ "</div>"
+        msgField.value = "";
+    }
+    webSocket.onmessage = function (msg) {
+        divMsg.innerHTML += "Server>: " + msg.data;
+    }
+    webSocket.onopen = function () {
+        console.log("Server opened")
+    }
+
+    webSocket.onclose = function () {
+        console.log("Server closed")
+    }
+
+    webSocket.onerror = function (msg) {
+        console.log("error: ", msg)
+    }
+</script>
 </body>
 </html>
