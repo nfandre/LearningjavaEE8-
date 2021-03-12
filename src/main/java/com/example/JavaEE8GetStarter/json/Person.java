@@ -1,6 +1,5 @@
 package com.example.JavaEE8GetStarter.json;
 
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.Date;
 import java.util.List;
